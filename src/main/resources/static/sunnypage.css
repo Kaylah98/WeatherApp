@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+body { 
+   background-image: linear-gradient(to bottom, #ffe5ad, #ffd2ac, #ffc0ba, #ffb4d1, #eeb1eb, #dbb2ef, #c7b3f1, #b3b4ef, #b8b3e3, #bbb2d7, #bbb3cc, #bab3c2);
+    min-height: 100vh;
+}
+
+#location {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#status {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#sunny {
+	text-align: center;
+}
+
+#temp {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+}

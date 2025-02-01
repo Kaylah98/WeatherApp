@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+body { 
+   background-image: linear-gradient(to bottom right, gray, white);
+    min-height: 100vh;
+}
+
+#location {
+	text-align: center;
+	transform: translateY(100%);
+}
+
+#today {
+	text-align: center;
+	font-size: 30px;
+}

@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+body {
+	/* Spaceship image credit: danielarealpeg/pixabay */
+	background-image: url("/images/spaceship-4828098_1920.jpg");
+	min-height: 99vh;
+}
+
+#location {
+	color: yellow;
+	text-align: center;
+}
