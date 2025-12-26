@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Search</title>
-<link rel= "stylesheet" type="text/css" href="searchpage.css">
-</head>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Get Weather</title>
+		<link rel="stylesheet" type="text/css" href="searchpage.css">
+	</head>
+
 <body>
 
 
-<h2 id="today">Get today's weather</h2>
+	<h1 id="weather-header">Get today's weather</h1>
 
-<form method="GET" action="/weather/results">
-	<div id="location">
-	<h1 id= "city">Enter City: <input type="text" name= "cityName"></h1>
-	<h1 id="region">Enter Region/State: <input type="text" name="region"></h1>
-	<h1 id="country">Enter Country: <input type="text" name= "country"></h1>
-	<input type="submit" value="Get Weather">
-	</div>
-	
-</form>
+	<form method="POST" action="/weather/results" th:object="${weatherRequest}">
+		<div id="location">
+			<label for="cityName">Enter City:</label>
+			 <input type="text" id="cityName" th:field="*{cityName}">
+			<br><br>
+			<label for="region">Enter Region/State:</label>
+			<input type="text" id="region" th:field="*{region}">
+			<br><br>
+			<label for="country">Enter Country:</label>
+				<input type="text" id="country" th:field="*{country}">
+				<br><br>
+			<input id="submit-weather" type="submit" value="Get Weather">
+		</div>
+
+	</form>
 
 
 </body>

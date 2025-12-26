@@ -1,4 +1,4 @@
-package com.codingwithkaylah.weathermodel;
+package com.codingwithkaylah.weather.weathermodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,4 +1,4 @@
-package com.codingwithkaylah.weathermodel;
+package com.codingwithkaylah.weather.weathermodel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -43,6 +43,11 @@ public class Location {
 
 	public void setRegion(String region) {
 		this.region = region;
+	}
+	
+	@Override
+	public String toString() {
+		return cityName + ", " + region + ", " + country;
 	}
 	
 	

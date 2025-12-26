@@ -1,16 +1,32 @@
 @charset "UTF-8";
 
-body { 
-   background-image: linear-gradient(to bottom right, gray, white);
-    min-height: 100vh;
+body {
+	background-image: linear-gradient(to bottom right, gray, white);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #location {
-	text-align: center;
-	transform: translateY(100%);
+	position: absolute;
+	top: 30%;
+	left: 40%;
+	height: 160px;
 }
 
-#today {
-	text-align: center;
+#weather-header {
+	position: absolute;
+	top: 100px;
+	left: 45%;
 	font-size: 30px;
+}
+
+label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#submit-weather {
+	position: relative;
+	left: 40%;
+	
 }

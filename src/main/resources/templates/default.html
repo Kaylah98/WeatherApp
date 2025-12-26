@@ -3,42 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <title>Weather</title>
-<link rel= "stylesheet" type="text/css" href="/defaultpage.css">
+<link rel="stylesheet" type="text/css" href="/defaultpage.css">
 </head>
 <body>
 
-<a href="/weather">
- <!-- Back button image credit: A3DigitalStudio/pixabay -->
- <img src="/images/back_button.png" style="width: 100px; height: 80px;">
- </a>
- 
-<br>
+	<a href="/weather"> <!-- Back button image credit: A3DigitalStudio/pixabay -->
+				<img src="/images/back_button.png" id="back-button">
+	</a>
+		<img src="" id="weather-pic">
+	<div id="location">
+		<span th:text="${weatherData.location.cityName} + ', '"></span> 
+		<span th:text="${weatherData.location.region} + ' '"></span> 
+		<span th:text="${weatherData.location.country}"></span>
+	<div id="weather-info">
+		<p th:text="${weatherData.current.condition.status}"
+			th:data-myval="${weatherData.current.condition.status}"
+			id="citystatus"></p>
+			<br>
+		<span id="fah" th:text="'Temperature: ' + ${weatherData.current.temperatureF} + 'F /'"></span>
+		<span id="celsius" th:text="${weatherData.current.temperatureC} + 'C'"></span>
+		<br><br>
+		<span id="wind-mph" th:text="'Wind: ' + ${weatherData.current.windMph} + 'mph' + ' /'"></span>
+		<span id="wind-kph" th:text="${weatherData.current.windKph} + 'kph'"></span>
+		<br><br>
+		<span id="feels-like-F" th:text="'Feels like: ' + ${weatherData.current.feelsLikeF} + 'F' + ' /'"></span>
+		<span id="feels-like-C" th:text="${weatherData.current.feelsLikeC} + 'C'"></span>
+		<br><br>
+		<span id="humidity" th:text="'Humidity: ' + ${weatherData.current.humidity} + '%'"></span>
+	</div>
+	</div>
 
-<br>
-
-<div id="location">
-<span th:text="${weatherData.location.cityName}" ></span>
-<span>,</span>
-<span th:text="${weatherData.location.region}"></span>
-<span>,</span>
-<span th:text="${weatherData.location.country}"></span>
-</div>
-
-<br>
-
-<div id="status">
-<span th:text="${weatherData.temperature.condition.status}"></span>
-<span>!</span>
-</div>
-
-<br>
 
 
+	<script th:inline="javascript">
+const weatherEl = document.getElementById("citystatus").dataset.myval.toLowerCase();
+const weatherPic = document.getElementById("weather-pic");
+console.log(weatherEl);
 
-<div id="temp">
-<span id="fah" th:text="${weatherData.temperature.temperatureF}"></span><span>F</span>
-<span>/</span>
-<span id="cel" th:text="${weatherData.temperature.temperatureC}"></span><span>C</span>
-</div>
+	switch (true) {
+		case (weatherEl.includes('sunny') || weatherEl.includes('clear')):
+			document.body.style.backgroundImage = ("linear-gradient(to bottom, #ffe5ad, #ffd2ac, #ffc0ba, #ffb4d1, #eeb1eb, #dbb2ef, #c7b3f1, #b3b4ef, #b8b3e3, #bbb2d7, #bbb3cc, #bab3c2)");
+			weatherPic.src = "/images/pexels-goumbik-296234.jpg";
+			break;
+		case (weatherEl.includes('cloudy') || weatherEl.includes('overcast')):
+			document.body.style.backgroundImage = ("linear-gradient(to bottom, #e1dada, #c8c3c3, #b0acac, #989696, #818080)");
+			weatherPic.src = "/images/pexels-andrew-beatson-2114196-3742711.jpg";
+			break;
+		case (weatherEl.includes('rain')):
+			document.body.style.backgroundImage = ("linear-gradient(90deg, rgba(46,42,122,1) 0%, rgba(24,24,182,1) 35%, rgba(0,212,255,1) 100%)");
+			weatherPic.src = "/images/pexels-lum3n-44775-1410224.jpg";
+			break;
+		case (weatherEl.includes('snow')):
+			document.body.style.backgroundImage = ("linear-gradient(to bottom, #ffffff, #eaeaea, #d6d6d6, #c2c2c2, #afafaf)");
+			weatherPic.src = "/images/pexels-koprivakart-3634855.jpg";
+			break;
+		case (weatherEl.includes('freezing')):
+			document.body.style.backgroundImage = ("linear-gradient(to bottom, #ffffff, #eaeaea, #d6d6d6, #c2c2c2, #afafaf)");
+			weatherPic.src = "/images/pexels-eberhardgross-1292115.jpg";
+			break;
+		default:
+			document.body.style.backgroundImage = "";
+			document.body.style.backgroundColor = "white";
+			weatherPic.remove();
+			
+			
+	}
+	
+	
+		
+	
+</script>
 </body>
 </html>
